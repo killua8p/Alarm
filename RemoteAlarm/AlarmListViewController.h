@@ -10,4 +10,5 @@
 
 @interface AlarmListViewController : UITableViewController
 
+- (void)addNewItem;
 @end

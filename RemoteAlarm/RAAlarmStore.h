@@ -12,14 +12,14 @@
 
 @interface RAAlarmStore : NSObject
 {
-    NSMutableArray *allItems;
+    NSMutableArray *allAlarms;
 }
 
 + (RAAlarmStore *)sharedStore;
 
-- (NSArray *)allItems;
-- (RAAlarm *)createItem;
-- (void)removeItem:(RAAlarmStore *)p;
+- (NSArray *)allAlarms;
+- (void)addAlarm:(RAAlarm *)p;
+- (void)removeAlarm:(RAAlarm *)p;
 - (NSString *)itemArchivePath;
 - (BOOL)saveChanges;
 

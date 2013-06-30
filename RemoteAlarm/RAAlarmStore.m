@@ -35,31 +35,31 @@
     
     if (self)
     {
-        allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:[self itemArchivePath]];
+        allAlarms = [NSKeyedUnarchiver unarchiveObjectWithFile:[self itemArchivePath]];
     }
     
     // If the array hasn't been saved previously, create a new one
-    if (!allItems)
+    if (!allAlarms)
     {
-        allItems = [[NSMutableArray alloc] init];
+        allAlarms = [[NSMutableArray alloc] init];
     }
     
     return self;
 }
 
-- (NSArray *)allItems;
+- (NSArray *)allAlarms;
 {
     return nil;
 }
 
-- (RAAlarm *)createItem;
+- (void)addAlarm:(RAAlarm *)p
 {
-    return nil;
+    [allAlarms addObject:p];
 }
 
-- (void)removeItem:(RAAlarmStore *)p;
+- (void)removeAlarm:(RAAlarm *)p;
 {
-    
+    [allAlarms removeObjectIdenticalTo:p];
 }
 
 // Path to archive the alarms
@@ -72,7 +72,7 @@
 // Archive alarms
 - (BOOL)saveChanges
 {
-    return [NSKeyedArchiver archiveRootObject:allItems toFile:[self itemArchivePath]];
+    return [NSKeyedArchiver archiveRootObject:allAlarms toFile:[self itemArchivePath]];
 }
 
 @end

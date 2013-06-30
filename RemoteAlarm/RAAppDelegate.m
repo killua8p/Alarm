@@ -18,12 +18,14 @@
     // Override point for customization after application launch.
     
     // Alarm List
-    AlarmListViewController *alvc = [[AlarmListViewController alloc] initWithStyle:UITableViewStylePlain];
+    AlarmListViewController *avc = [[AlarmListViewController alloc] init];
+    UINavigationController *anv = [[UINavigationController alloc] initWithRootViewController:avc];
     // Contact List
-    ContactListViewController *clvc = [[ContactListViewController alloc] initWithStyle:UITableViewStylePlain];
+    ContactListViewController *cvc = [[ContactListViewController alloc] init];
+    UINavigationController *cnv = [[UINavigationController alloc] initWithRootViewController:cvc];
     // Tab View
     UITabBarController *tbc = [[UITabBarController alloc] init];
-    NSArray *controllers = [NSArray arrayWithObjects:alvc, clvc, nil];
+    NSArray *controllers = [NSArray arrayWithObjects:anv, cnv, nil];
     [tbc setViewControllers:controllers];
     
     // Set root view

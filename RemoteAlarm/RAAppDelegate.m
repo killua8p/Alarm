@@ -1,35 +1,19 @@
 //
-//  RemoteAlarmAppDelegate.m
+//  RAAppDelegate.m
 //  RemoteAlarm
 //
-//  Created by Phoebe Lv on 29/06/13.
+//  Created by Alan Huang on 30/06/13.
 //  Copyright (c) 2013 Alan Huang. All rights reserved.
 //
 
-#import "RemoteAlarmAppDelegate.h"
-#import "AlarmListViewController.h"
-#import "ContactListViewController.h"
+#import "RAAppDelegate.h"
 
-@implementation RemoteAlarmAppDelegate
+@implementation RAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    
-    // Tab View
-    UITabBarController *tbc = [[UITabBarController alloc] init];
-    
-    // Alarm List
-    AlarmListViewController *alvc = [[AlarmListViewController alloc] initWithStyle:UITableViewStylePlain];
-    // Contact List
-    ContactListViewController *clvc = [[ContactListViewController alloc] initWithStyle:UITableViewStylePlain];
-    
-    NSArray *controllers = [NSArray arrayWithObjects:alvc, clvc, nil];
-    [tbc setViewControllers:controllers];
-    
-    [[self window] setRootViewController:tbc];
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

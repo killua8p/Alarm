@@ -35,6 +35,12 @@
     
     if (self)
     {
+        allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:[self itemArchivePath]];
+    }
+    
+    // If the array hasn't been saved previously, create a new one
+    if (!allItems)
+    {
         allItems = [[NSMutableArray alloc] init];
     }
     
@@ -54,6 +60,19 @@
 - (void)removeItem:(RAAlarmStore *)p;
 {
     
+}
+
+// Path to archive the alarms
+- (NSString *)itemArchivePath
+{
+    NSString *directory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    return [directory stringByAppendingPathComponent:@"alarms.archive"];
+}
+
+// Archive alarms
+- (BOOL)saveChanges
+{
+    return [NSKeyedArchiver archiveRootObject:allItems toFile:[self itemArchivePath]];
 }
 
 @end

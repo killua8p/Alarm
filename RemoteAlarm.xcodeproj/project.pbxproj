@@ -16,6 +16,10 @@
 		E7E0B65A177FCD25001D581E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E0B659177FCD25001D581E /* Default.png */; };
 		E7E0B65C177FCD25001D581E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E0B65B177FCD25001D581E /* Default@2x.png */; };
 		E7E0B65E177FCD25001D581E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E0B65D177FCD25001D581E /* Default-568h@2x.png */; };
+		E7E0B66C177FD06E001D581E /* RAAlarmStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B664177FD06E001D581E /* RAAlarmStore.m */; };
+		E7E0B66D177FD06E001D581E /* RAAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B666177FD06E001D581E /* RAAlarm.m */; };
+		E7E0B66E177FD06E001D581E /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B668177FD06E001D581E /* ContactListViewController.m */; };
+		E7E0B66F177FD06E001D581E /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B66A177FD06E001D581E /* AlarmListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,14 @@
 		E7E0B659177FCD25001D581E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E7E0B65B177FCD25001D581E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E7E0B65D177FCD25001D581E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E7E0B664177FD06E001D581E /* RAAlarmStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAAlarmStore.m; sourceTree = "<group>"; };
+		E7E0B665177FD06E001D581E /* RAAlarmStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAAlarmStore.h; sourceTree = "<group>"; };
+		E7E0B666177FD06E001D581E /* RAAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAAlarm.m; sourceTree = "<group>"; };
+		E7E0B667177FD06E001D581E /* RAAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAAlarm.h; sourceTree = "<group>"; };
+		E7E0B668177FD06E001D581E /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
+		E7E0B669177FD06E001D581E /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
+		E7E0B66A177FD06E001D581E /* AlarmListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmListViewController.m; sourceTree = "<group>"; };
+		E7E0B66B177FD06E001D581E /* AlarmListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmListViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,14 @@
 		E7E0B64D177FCD25001D581E /* RemoteAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				E7E0B664177FD06E001D581E /* RAAlarmStore.m */,
+				E7E0B665177FD06E001D581E /* RAAlarmStore.h */,
+				E7E0B666177FD06E001D581E /* RAAlarm.m */,
+				E7E0B667177FD06E001D581E /* RAAlarm.h */,
+				E7E0B668177FD06E001D581E /* ContactListViewController.m */,
+				E7E0B669177FD06E001D581E /* ContactListViewController.h */,
+				E7E0B66A177FD06E001D581E /* AlarmListViewController.m */,
+				E7E0B66B177FD06E001D581E /* AlarmListViewController.h */,
 				E7E0B656177FCD25001D581E /* RAAppDelegate.h */,
 				E7E0B657177FCD25001D581E /* RAAppDelegate.m */,
 				E7E0B64E177FCD25001D581E /* Supporting Files */,
@@ -167,6 +187,10 @@
 			files = (
 				E7E0B654177FCD25001D581E /* main.m in Sources */,
 				E7E0B658177FCD25001D581E /* RAAppDelegate.m in Sources */,
+				E7E0B66C177FD06E001D581E /* RAAlarmStore.m in Sources */,
+				E7E0B66D177FD06E001D581E /* RAAlarm.m in Sources */,
+				E7E0B66E177FD06E001D581E /* ContactListViewController.m in Sources */,
+				E7E0B66F177FD06E001D581E /* AlarmListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +305,7 @@
 				E7E0B663177FCD25001D581E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

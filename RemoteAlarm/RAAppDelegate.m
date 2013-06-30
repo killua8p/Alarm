@@ -7,6 +7,8 @@
 //
 
 #import "RAAppDelegate.h"
+#import "AlarmListViewController.h"
+#import "ContactListViewController.h"
 
 @implementation RAAppDelegate
 
@@ -14,6 +16,19 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // Alarm List
+    AlarmListViewController *alvc = [[AlarmListViewController alloc] initWithStyle:UITableViewStylePlain];
+    // Contact List
+    ContactListViewController *clvc = [[ContactListViewController alloc] initWithStyle:UITableViewStylePlain];
+    // Tab View
+    UITabBarController *tbc = [[UITabBarController alloc] init];
+    NSArray *controllers = [NSArray arrayWithObjects:alvc, clvc, nil];
+    [tbc setViewControllers:controllers];
+    
+    // Set root view
+    [[self window] setRootViewController:tbc];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

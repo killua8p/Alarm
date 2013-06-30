@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RAAlarm : NSObject
+@interface RAAlarm : NSObject <NSCoding>
 
-@property (nonatomic, strong) NSDate *time;
+@property (nonatomic, strong) NSDate *alarmTime;
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSString *senderName;
 @property (nonatomic, strong) NSString *senderID;
 @property (nonatomic, strong) NSString *ringtone;
+@property (nonatomic, strong) NSDate *dateCreated;
 
 @end

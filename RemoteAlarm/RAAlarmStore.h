@@ -20,5 +20,7 @@
 - (NSArray *)allItems;
 - (RAAlarm *)createItem;
 - (void)removeItem:(RAAlarmStore *)p;
+- (NSString *)itemArchivePath;
+- (BOOL)saveChanges;
 
 @end

@@ -19,5 +19,6 @@
 @property (nonatomic, strong) RAAlarm *alarm;
 
 - (IBAction)sendAlarm:(UIButton *)sender;
+- (IBAction)backgroundTapped:(id)sender;
 
 @end

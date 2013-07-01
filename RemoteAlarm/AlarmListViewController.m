@@ -67,7 +67,9 @@
     
     // Set cell text
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     [[cell textLabel] setText:[dateFormatter stringFromDate:[alarm alarmTime]]];
+    [[cell detailTextLabel] setText:[alarm receiverName]]; //TODO
     
     return cell;
 }

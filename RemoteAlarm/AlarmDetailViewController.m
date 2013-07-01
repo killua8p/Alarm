@@ -34,26 +34,27 @@
 }
 
 - (IBAction)sendAlarm:(UIButton *)sender
-{
-//    NSArray *allAlarms = [[RAAlarmStore sharedStore] allAlarms];
-//    
-//    if ([allAlarms count] == 0)
-//    {// Add
-//        NSLog(@"[allAlarms count] == 0");
+{    
+    [alarm setReceiverID:[receiverName text]];
+    [alarm setMessage:[message text]];
+    [alarm setAlarmTime:[datePicker date]];
+    [alarm setDateCreated:[NSDate date]];
+    
+    
+    NSUInteger index = [[[RAAlarmStore sharedStore] allAlarms] indexOfObject:alarm];
+    if (index == NSNotFound)
+    {//Add
         [[RAAlarmStore sharedStore] addAlarm:alarm];
-//    }
-//    else
-//    {
-//        NSUInteger index = [[[RAAlarmStore sharedStore] allAlarms] indexOfObject:alarm];
-//        if (index == NSNotFound)
-//        {
-//            NSLog(@"index == NSNotFound");
-//            //Add
-//            [[RAAlarmStore sharedStore] addAlarm:alarm];
-//        }
-//    }
-//    
-//    [[self navigationController] popViewControllerAnimated:YES];
+    }
+    
+    // Return last view
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+// Dismiss keyboard when clicking the background
+- (IBAction)backgroundTapped:(id)sender
+{
+    [[self view] endEditing:YES];
 }
 
 @end

@@ -35,25 +35,25 @@
 
 - (IBAction)sendAlarm:(UIButton *)sender
 {
-    NSArray *allAlarms = [[RAAlarmStore sharedStore] allAlarms];
-    
-    if ([allAlarms count] == 0)
-    {// Add
-        NSLog(@"[allAlarms count] == 0");
+//    NSArray *allAlarms = [[RAAlarmStore sharedStore] allAlarms];
+//    
+//    if ([allAlarms count] == 0)
+//    {// Add
+//        NSLog(@"[allAlarms count] == 0");
         [[RAAlarmStore sharedStore] addAlarm:alarm];
-    }
-    else
-    {
-        NSUInteger index = [[[RAAlarmStore sharedStore] allAlarms] indexOfObject:alarm];
-        if (index == NSNotFound)
-        {
-            NSLog(@"index == NSNotFound");
-            //Add
-            [[RAAlarmStore sharedStore] addAlarm:alarm];
-        }
-    }
-    
-    [[self navigationController] popViewControllerAnimated:YES];
+//    }
+//    else
+//    {
+//        NSUInteger index = [[[RAAlarmStore sharedStore] allAlarms] indexOfObject:alarm];
+//        if (index == NSNotFound)
+//        {
+//            NSLog(@"index == NSNotFound");
+//            //Add
+//            [[RAAlarmStore sharedStore] addAlarm:alarm];
+//        }
+//    }
+//    
+//    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 @end

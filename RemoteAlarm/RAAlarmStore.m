@@ -49,7 +49,7 @@
 
 - (NSArray *)allAlarms;
 {
-    return nil;
+    return allAlarms;
 }
 
 - (void)addAlarm:(RAAlarm *)p

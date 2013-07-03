@@ -35,7 +35,7 @@
 
 - (IBAction)sendAlarm:(UIButton *)sender
 {    
-    [alarm setReceiverID:[receiverName text]];
+    [alarm setReceiverName:[receiverName text]];
     [alarm setMessage:[message text]];
     [alarm setAlarmTime:[datePicker date]];
     [alarm setDateCreated:[NSDate date]];

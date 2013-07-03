@@ -29,6 +29,7 @@
     return self;
 }
 
+// Add
 - (void)addNewItem
 {
     // Create a new alarm item
@@ -72,6 +73,16 @@
     [[cell detailTextLabel] setText:[alarm receiverName]]; //TODO
     
     return cell;
+}
+
+// Edit
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RAAlarm *alarm = [[[RAAlarmStore sharedStore] allAlarms] objectAtIndex:[indexPath row]];
+    
+    AlarmDetailViewController *detailVC = [[AlarmDetailViewController alloc] init];
+    [detailVC setAlarm:alarm];
+    [[self navigationController] pushViewController:detailVC animated:YES];
 }
 
 @end

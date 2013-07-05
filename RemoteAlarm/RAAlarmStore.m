@@ -59,6 +59,9 @@
 
 - (void)removeAlarm:(RAAlarm *)p;
 {
+    // TODO: Sync to friend
+    
+    // Remobe the alarm from array
     [allAlarms removeObjectIdenticalTo:p];
 }
 

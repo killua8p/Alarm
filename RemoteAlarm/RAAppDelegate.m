@@ -21,9 +21,13 @@
     // Alarm List
     AlarmListViewController *avc = [[AlarmListViewController alloc] init];
     UINavigationController *anv = [[UINavigationController alloc] initWithRootViewController:avc];
+    [[anv tabBarItem] setTitle:@"Alarm"];
+    
     // Contact List
     ContactListViewController *cvc = [[ContactListViewController alloc] init];
     UINavigationController *cnv = [[UINavigationController alloc] initWithRootViewController:cvc];
+    [[cnv tabBarItem] setTitle:@"Contact"];
+    
     // Tab View
     UITabBarController *tbc = [[UITabBarController alloc] init];
     NSArray *controllers = [NSArray arrayWithObjects:anv, cnv, nil];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35F8ACD41786C0B7006C5B91 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F8ACD31786C0B7006C5B91 /* AddressBook.framework */; };
 		E7E0B648177FCD25001D581E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E0B647177FCD25001D581E /* UIKit.framework */; };
 		E7E0B64A177FCD25001D581E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E0B649177FCD25001D581E /* Foundation.framework */; };
 		E7E0B64C177FCD25001D581E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E0B64B177FCD25001D581E /* CoreGraphics.framework */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35F8ACD31786C0B7006C5B91 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		E7E0B644177FCD25001D581E /* RemoteAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E0B647177FCD25001D581E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E7E0B649177FCD25001D581E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35F8ACD41786C0B7006C5B91 /* AddressBook.framework in Frameworks */,
 				E7E0B648177FCD25001D581E /* UIKit.framework in Frameworks */,
 				E7E0B64A177FCD25001D581E /* Foundation.framework in Frameworks */,
 				E7E0B64C177FCD25001D581E /* CoreGraphics.framework in Frameworks */,
@@ -68,6 +71,7 @@
 		E7E0B63B177FCD25001D581E = {
 			isa = PBXGroup;
 			children = (
+				35F8ACD31786C0B7006C5B91 /* AddressBook.framework */,
 				E7E0B64D177FCD25001D581E /* RemoteAlarm */,
 				E7E0B646177FCD25001D581E /* Frameworks */,
 				E7E0B645177FCD25001D581E /* Products */,

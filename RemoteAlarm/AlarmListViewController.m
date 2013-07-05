@@ -85,4 +85,18 @@
     [[self navigationController] pushViewController:detailVC animated:YES];
 }
 
+// Delete
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        // Remove the alarm from store
+        RAAlarm *p = [[[RAAlarmStore sharedStore] allAlarms] objectAtIndex:[indexPath row]];
+        [[RAAlarmStore sharedStore] removeAlarm:p];
+        
+        // Remove the alarm from tableview
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 @end

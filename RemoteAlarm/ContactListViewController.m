@@ -7,6 +7,7 @@
 //
 
 #import "ContactListViewController.h"
+#import <AddressBook/AddressBook.h>
 
 @interface ContactListViewController ()
 
@@ -19,6 +20,13 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
+        CFErrorRef *error = nil;
+        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(nil, error);
+        CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBook);
+        contactList = (__bridge_transfer NSArray*)allPeople;
+        
+        CFRelease(addressBook);
     }
     return self;
 }

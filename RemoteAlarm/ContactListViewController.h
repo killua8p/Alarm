@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactListViewController : UITableViewController
+{
+    NSArray *contactList;
+}
 
 @end

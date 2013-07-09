@@ -36,12 +36,12 @@
     if (self)
     {
         allAlarms = [NSKeyedUnarchiver unarchiveObjectWithFile:[self itemArchivePath]];
-    }
     
-    // If the array hasn't been saved previously, create a new one
-    if (!allAlarms)
-    {
-        allAlarms = [[NSMutableArray alloc] init];
+        // If the array hasn't been saved previously, create a new one
+        if (!allAlarms)
+        {
+            allAlarms = [[NSMutableArray alloc] init];
+        }
     }
     
     return self;

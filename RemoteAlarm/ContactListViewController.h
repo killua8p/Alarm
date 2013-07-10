@@ -10,7 +10,7 @@
 
 @interface ContactListViewController : UITableViewController
 {
-    NSArray *contactList;
+    NSMutableArray *contactList;
 }
 
 @end

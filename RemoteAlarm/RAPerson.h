@@ -13,7 +13,7 @@
 @property NSInteger recordID;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
-@property (nonatomic, strong) NSArray *tel;
-@property (nonatomic, strong) NSArray *email;
+@property (nonatomic, strong) NSMutableArray *tel;
+@property (nonatomic, strong) NSMutableArray *email;
 
 @end

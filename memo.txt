@@ -1,0 +1,1 @@
+original bundle identifier: com.ak.${PRODUCT_NAME:rfc1034identifier}

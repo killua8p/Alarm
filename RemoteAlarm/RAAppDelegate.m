@@ -36,9 +36,18 @@
     // Set root view
     [[self window] setRootViewController:tbc];
     
+    // Register for push notification
+    UIRemoteNotificationType types = (UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound);
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:types];
+        
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSLog(@"local notification!");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

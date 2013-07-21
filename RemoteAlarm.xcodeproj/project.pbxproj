@@ -287,10 +287,14 @@
 		E7E0B662177FCD25001D581E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alan Huang (A972MJ4234)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alan Huang (A972MJ4234)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RemoteAlarm/RemoteAlarm-Prefix.pch";
 				INFOPLIST_FILE = "RemoteAlarm/RemoteAlarm-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7BE2C8A7-91DD-4B59-825C-0A1B4DAD0C3A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7BE2C8A7-91DD-4B59-825C-0A1B4DAD0C3A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -298,10 +302,14 @@
 		E7E0B663177FCD25001D581E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alan Huang (A972MJ4234)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alan Huang (A972MJ4234)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RemoteAlarm/RemoteAlarm-Prefix.pch";
 				INFOPLIST_FILE = "RemoteAlarm/RemoteAlarm-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7BE2C8A7-91DD-4B59-825C-0A1B4DAD0C3A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7BE2C8A7-91DD-4B59-825C-0A1B4DAD0C3A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

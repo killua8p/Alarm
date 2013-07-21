@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface RAAlarm : NSObject <NSCoding>
-
+{
+    NSString *UID;
+}
 @property (nonatomic, strong) NSDate *alarmTime;
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSString *senderName;
@@ -18,5 +20,6 @@
 @property (nonatomic, strong) NSString *receiverID;
 @property (nonatomic, strong) NSString *ringtone;
 @property (nonatomic, strong) NSDate *dateCreated;
+@property (nonatomic, assign) BOOL isEnabled;
 
 @end

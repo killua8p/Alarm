@@ -15,10 +15,12 @@
     __weak IBOutlet UIDatePicker *datePicker;
     __weak IBOutlet UITextField *receiverName;
     __weak IBOutlet UITextField *message;
+    __weak IBOutlet UISwitch *isEnabled;
 }
 @property (nonatomic, strong) RAAlarm *alarm;
 
 - (IBAction)sendAlarm:(UIButton *)sender;
 - (IBAction)backgroundTapped:(id)sender;
+- (IBAction)switchChanged:(UISwitch *)sender;
 
 @end

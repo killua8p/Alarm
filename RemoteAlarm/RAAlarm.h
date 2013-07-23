@@ -10,7 +10,7 @@
 
 @interface RAAlarm : NSObject <NSCoding>
 {
-    NSString *UID;
+    NSString *alarmID;
 }
 @property (nonatomic, strong) NSDate *alarmTime;
 @property (nonatomic, strong) NSString *message;

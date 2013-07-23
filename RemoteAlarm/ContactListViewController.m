@@ -53,10 +53,9 @@
                     {
                         CFTypeRef tel = ABMultiValueCopyValueAtIndex(tels, j);
                         [telArray addObject:(__bridge_transfer NSString*)tel];
-
-                        CFRelease(tel);
                     }
                 }
+                CFRelease(tels);
             }
             
             // Get email addresses
@@ -73,12 +72,11 @@
                     {
                         CFTypeRef email = ABMultiValueCopyValueAtIndex(emails, j);
                         [emailArray addObject:(__bridge_transfer NSString*)email];
-                        
-                        CFRelease(email);
                     }
                 }
+                CFRelease(emails);
             }
-            
+
             // Add contact to the array
             [aPerson setFirstName:(__bridge_transfer NSString*)firstName];
             [aPerson setLastName:(__bridge_transfer NSString*)lastName];
@@ -89,12 +87,9 @@
             [contactList addObject:aPerson];
 
             // Release CF objects
-            CFRelease(firstName);
-            CFRelease(lastName);
-            CFRelease(tels);
-            CFRelease(emails);
         }
         
+        CFRelease(allPeople);
         CFRelease(addressBook);
     }
     return self;

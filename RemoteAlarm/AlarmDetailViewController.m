@@ -31,6 +31,7 @@
     [datePicker setDate:[alarm alarmTime]];
     [message setText:[alarm message]];
     [receiverName setText:[alarm receiverName]];
+    [isEnabled setOn:[alarm isEnabled]];
 }
 
 - (IBAction)sendAlarm:(UIButton *)sender
@@ -55,6 +56,12 @@
 - (IBAction)backgroundTapped:(id)sender
 {
     [[self view] endEditing:YES];
+}
+
+// The alarm is turned on or turned off
+- (IBAction)switchChanged:(UISwitch *)sender
+{
+    [alarm setIsEnabled:[sender isOn]];
 }
 
 @end

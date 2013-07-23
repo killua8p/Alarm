@@ -17,6 +17,7 @@
     self = [super init];
     if (self)
     {
+        alarmID = [self getUUID];
         [self setAlarmTime:[NSDate date]];
         [self setMessage:@"Time is up!"];
         [self setSenderID:@""];
@@ -31,8 +32,20 @@
     return self;
 }
 
+- (NSString *)getUUID
+{
+    CFUUIDRef UUIDRef = CFUUIDCreate(kCFAllocatorDefault);
+    CFStringRef UUIDString = CFUUIDCreateString(kCFAllocatorDefault, UUIDRef);
+    NSString *strUUID = (__bridge_transfer NSString*)UUIDString;
+    
+    CFRelease(UUIDRef);
+    
+    return strUUID;
+}
+
 - (void)setIsEnabled:(BOOL)value
 {
+    // Return if the isEnabled variable doesn't change
     if (isEnabled == value)
     {
         return;
@@ -43,7 +56,7 @@
     if (isEnabled)
     {
         // The alarm is ENABLED
-        
+                
         // Set up local notification
         UILocalNotification *localNotif = [[UILocalNotification alloc] init];
         [localNotif setFireDate:alarmTime];
@@ -51,11 +64,30 @@
         [localNotif setAlertAction:@"OK"];
         [localNotif setSoundName:UILocalNotificationDefaultSoundName];
         
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:alarmID forKey:alarmID];
+        [localNotif setUserInfo:dict];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+        NSLog(@"Local notification has been added.");
+
     }
     else
     {
         // The alarm is DISABLED
         
+        // Remove the local notification
+        NSArray *localNotifArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
+        if (localNotifArray)
+        {
+            for (UILocalNotification *ln in localNotifArray)
+            {
+                if ([[[ln userInfo] objectForKey:alarmID] isEqualToString:alarmID])
+                {
+                    [[UIApplication sharedApplication] cancelLocalNotification:ln];
+                    NSLog(@"Local notification has been removed. (%d notifications left)", [localNotifArray count]);
+                }
+            }
+        }
     }
 }
 
@@ -75,12 +107,16 @@
         // Set Current Day + Time as alarm time
         alarmTime = t;
     }
-    // Set up local notification
-//    [localNotif setFireDate:alarmTime];
-//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-
+    
+    // If the alarm is on, reset the local notification
+    if (isEnabled)
+    {
+        isEnabled = FALSE;
+        isEnabled = TRUE;
+    }
 }
 
+// Dearchive
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
@@ -94,11 +130,13 @@
         [self setReceiverID:[aDecoder decodeObjectForKey:@"receiverID"]];
         [self setRingtone:[aDecoder decodeObjectForKey:@"ringtone"]];
         [self setDateCreated:[aDecoder decodeObjectForKey:@"dateCreated"]];
+        [self setIsEnabled:[aDecoder decodeBoolForKey:@"isEnabled"]];
     }
     
     return self;
 }
 
+// Archive
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:alarmTime forKey:@"alarmTime"];
@@ -109,6 +147,7 @@
     [aCoder encodeObject:receiverID forKey:@"receiverID"];
     [aCoder encodeObject:ringtone forKey:@"ringtone"];
     [aCoder encodeObject:dateCreated forKey:@"dateCreated"];
+    [aCoder encodeBool:isEnabled forKey:@"isEnabled"];
 }
 
 @end

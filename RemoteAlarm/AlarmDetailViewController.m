@@ -35,12 +35,12 @@
 }
 
 - (IBAction)sendAlarm:(UIButton *)sender
-{    
+{
     [alarm setReceiverName:[receiverName text]];
     [alarm setMessage:[message text]];
     [alarm setAlarmTime:[datePicker date]];
     [alarm setDateCreated:[NSDate date]];
-    
+    [alarm setIsEnabled:[isEnabled isOn]];
     
     NSUInteger index = [[[RAAlarmStore sharedStore] allAlarms] indexOfObject:alarm];
     if (index == NSNotFound)
@@ -61,7 +61,7 @@
 // The alarm is turned on or turned off
 - (IBAction)switchChanged:(UISwitch *)sender
 {
-    [alarm setIsEnabled:[sender isOn]];
+//    [alarm setIsEnabled:[sender isOn]];
 }
 
 @end

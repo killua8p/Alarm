@@ -8,6 +8,8 @@
 
 #import "RAAlarm.h"
 
+NSString * const kKeyOfNotificationID = @"ID";
+
 @implementation RAAlarm
 
 @synthesize alarmTime, message, senderName, senderID, receiverName, receiverID, ringtone, dateCreated, isEnabled;
@@ -56,7 +58,7 @@
     if (isEnabled)
     {
         // The alarm is ENABLED
-                
+
         // Set up local notification
         UILocalNotification *localNotif = [[UILocalNotification alloc] init];
         [localNotif setFireDate:alarmTime];
@@ -64,27 +66,32 @@
         [localNotif setAlertAction:@"OK"];
         [localNotif setSoundName:UILocalNotificationDefaultSoundName];
         
-        NSDictionary *dict = [NSDictionary dictionaryWithObject:alarmID forKey:alarmID];
-        [localNotif setUserInfo:dict];
-        
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-        NSLog(@"Local notification has been added.");
-
+        if (alarmID)
+        {
+            NSDictionary *dict = [NSDictionary dictionaryWithObject:alarmID forKey:kKeyOfNotificationID];
+            [localNotif setUserInfo:dict];
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+            NSLog(@"Local notification has been added");
+        }
+        else
+        {
+            NSLog(@"alarmID is nil");
+        }
     }
     else
     {
         // The alarm is DISABLED
-        
+
         // Remove the local notification
         NSArray *localNotifArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
         if (localNotifArray)
         {
             for (UILocalNotification *ln in localNotifArray)
             {
-                if ([[[ln userInfo] objectForKey:alarmID] isEqualToString:alarmID])
+                if ([[[ln userInfo] objectForKey:kKeyOfNotificationID] isEqualToString:alarmID])
                 {
                     [[UIApplication sharedApplication] cancelLocalNotification:ln];
-                    NSLog(@"Local notification has been removed. (%d notifications left)", [localNotifArray count]);
+                    NSLog(@"Local notification has been removed");
                 }
             }
         }
@@ -111,17 +118,18 @@
     // If the alarm is on, reset the local notification
     if (isEnabled)
     {
-        isEnabled = FALSE;
-        isEnabled = TRUE;
+        [self setIsEnabled: FALSE];
+        [self setIsEnabled: TRUE];
     }
 }
 
-// Dearchive
+// Unarchive
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
     if (self)
     {
+        alarmID = [aDecoder decodeObjectForKey:@"alarmID"];
         [self setAlarmTime:[aDecoder decodeObjectForKey:@"alarmTime"]];
         [self setMessage:[aDecoder decodeObjectForKey:@"message"]];
         [self setSenderName:[aDecoder decodeObjectForKey:@"senderName"]];
@@ -139,6 +147,7 @@
 // Archive
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
+    [aCoder encodeObject:alarmID forKey:@"alarmID"];
     [aCoder encodeObject:alarmTime forKey:@"alarmTime"];
     [aCoder encodeObject:message forKey:@"message"];
     [aCoder encodeObject:senderName forKey:@"senderName"];

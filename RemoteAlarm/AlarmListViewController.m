@@ -39,6 +39,9 @@
     AlarmDetailViewController *detailVC = [[AlarmDetailViewController alloc] init];
     [detailVC setAlarm:alarm];
     [[self navigationController] pushViewController:detailVC animated:YES];
+    
+    //debug
+    [self printLN];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -96,6 +99,26 @@
         
         // Remove the alarm from tableview
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+// debug: print all local notifications
+- (void)printLN
+{
+    NSArray *lnArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *ln in lnArray)
+    {
+        NSDictionary *dic = [ln userInfo];
+        if (dic)
+        {
+            NSLog(@"----");
+            for (id key in dic)
+            {
+                NSLog(@"%@ = %@", key, [dic objectForKey:key]);
+                NSLog(@"%@", [ln fireDate]);
+            }
+            NSLog(@"----");
+        }
     }
 }
 

@@ -20,7 +20,8 @@ NSString * const kKeyOfNotificationID = @"ID";
     if (self)
     {
         alarmID = [self getUUID];
-        [self setAlarmTime:[NSDate date]];
+        // Not using setter to avoid resetting local notification at the launch
+        alarmTime = [NSDate date];
         [self setMessage:@"Time is up!"];
         [self setSenderID:@""];
         [self setSenderName:@""];
@@ -28,7 +29,8 @@ NSString * const kKeyOfNotificationID = @"ID";
         [self setReceiverName:@""];
         [self setRingtone:@""];
         [self setDateCreated:[NSDate date]];
-        [self setIsEnabled:FALSE];
+        // Not using setter to avoid resetting local notification at the launch
+        isEnabled = FALSE;
     }
     
     return self;
@@ -100,20 +102,28 @@ NSString * const kKeyOfNotificationID = @"ID";
 
 - (void)setAlarmTime:(NSDate *)t
 {
+    // If time has not been changed do nothing
+    if (alarmTime && [alarmTime compare:t] == NSOrderedSame)
+    {
+        return;
+    }
+    
     // Save alarm time
-    NSDate *currentTime = [NSDate date];
-    if ([t compare:currentTime] == NSOrderedAscending)
-    {
-        // If it's past time
-        // Set Next Day + Time as alarm time
-        alarmTime = [t dateByAddingTimeInterval:24*60*60];
-    }
-    else
-    {
-        // If it's current time or furture time
-        // Set Current Day + Time as alarm time
-        alarmTime = t;
-    }
+    alarmTime = t;
+
+//    NSDate *currentTime = [NSDate date];
+//    if ([t compare:currentTime] == NSOrderedAscending)
+//    {
+//        // If it's past time
+//        // Set Next Day + Time as alarm time
+//        alarmTime = [t dateByAddingTimeInterval:24*60*60];
+//    }
+//    else
+//    {
+//        // If it's current time or furture time
+//        // Set Current Day + Time as alarm time
+//        alarmTime = t;
+//    }
     
     // If the alarm is on, reset the local notification
     if (isEnabled)
@@ -130,7 +140,8 @@ NSString * const kKeyOfNotificationID = @"ID";
     if (self)
     {
         alarmID = [aDecoder decodeObjectForKey:@"alarmID"];
-        [self setAlarmTime:[aDecoder decodeObjectForKey:@"alarmTime"]];
+        // Not using setter to avoid resetting local notification at the launch
+        alarmTime = [aDecoder decodeObjectForKey:@"alarmTime"];
         [self setMessage:[aDecoder decodeObjectForKey:@"message"]];
         [self setSenderName:[aDecoder decodeObjectForKey:@"senderName"]];
         [self setSenderID:[aDecoder decodeObjectForKey:@"senderID"]];
@@ -138,7 +149,8 @@ NSString * const kKeyOfNotificationID = @"ID";
         [self setReceiverID:[aDecoder decodeObjectForKey:@"receiverID"]];
         [self setRingtone:[aDecoder decodeObjectForKey:@"ringtone"]];
         [self setDateCreated:[aDecoder decodeObjectForKey:@"dateCreated"]];
-        [self setIsEnabled:[aDecoder decodeBoolForKey:@"isEnabled"]];
+        // Not using setter to avoid resetting local notification at the launch
+        isEnabled = [aDecoder decodeBoolForKey:@"isEnabled"];
     }
     
     return self;

@@ -47,7 +47,8 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    NSLog(@"local notification!");
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Alarm" message:[notification alertBody] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [av show];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

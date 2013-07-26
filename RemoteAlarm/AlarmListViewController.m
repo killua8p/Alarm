@@ -29,21 +29,6 @@
     return self;
 }
 
-// Add
-- (void)addNewItem
-{
-    // Create a new alarm item
-    RAAlarm *alarm = [[RAAlarm alloc] init];
-    
-    // Show the alarm detail view
-    AlarmDetailViewController *detailVC = [[AlarmDetailViewController alloc] init];
-    [detailVC setAlarm:alarm];
-    [[self navigationController] pushViewController:detailVC animated:YES];
-    
-    //debug
-    [self printLN];
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
@@ -71,11 +56,28 @@
     
     // Set cell text
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     [[cell textLabel] setText:[dateFormatter stringFromDate:[alarm alarmTime]]];
     [[cell detailTextLabel] setText:[alarm receiverName]]; //TODO
     
     return cell;
+}
+
+// Add
+- (void)addNewItem
+{
+    // Create a new alarm item
+    RAAlarm *alarm = [[RAAlarm alloc] init];
+    
+    // Show the alarm detail view
+    AlarmDetailViewController *detailVC = [[AlarmDetailViewController alloc] init];
+    [detailVC setAlarm:alarm];
+    [[self navigationController] pushViewController:detailVC animated:YES];
+    
+    //debug
+    [self printLN];
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 // Edit
@@ -106,19 +108,29 @@
 - (void)printLN
 {
     NSArray *lnArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
-    for (UILocalNotification *ln in lnArray)
+    if (lnArray)
     {
-        NSDictionary *dic = [ln userInfo];
-        if (dic)
+        NSLog(@"--Local Notification List--");
+
+        for (UILocalNotification *ln in lnArray)
         {
-            NSLog(@"----");
-            for (id key in dic)
+            NSDictionary *dic = [ln userInfo];
+            if (dic)
             {
-                NSLog(@"%@ = %@", key, [dic objectForKey:key]);
-                NSLog(@"%@", [ln fireDate]);
+                for (id key in dic)
+                {
+                    NSLog(@"%@ = %@", key, [dic objectForKey:key]);
+                    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                    [df setDateStyle:NSDateFormatterShortStyle];
+                    [df setTimeStyle:NSDateFormatterShortStyle];
+                    [df setTimeZone:[NSTimeZone defaultTimeZone]];
+//                    NSLog(@"%@", [ln fireDate]);
+                    NSLog(@"%@", [df stringFromDate:[ln fireDate]]);
+                }
             }
-            NSLog(@"----");
         }
+        
+        NSLog(@"--End of Local Notification List--");
     }
 }
 

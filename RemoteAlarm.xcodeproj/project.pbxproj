@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35B59DAC17ACFA4D00D4F128 /* RAApiCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B59DAB17ACFA4D00D4F128 /* RAApiCaller.m */; };
 		35F8ACD41786C0B7006C5B91 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F8ACD31786C0B7006C5B91 /* AddressBook.framework */; };
 		E7C7E42B178C3FB3007065E8 /* RAPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7E42A178C3FB3007065E8 /* RAPerson.m */; };
 		E7E0B648177FCD25001D581E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E0B647177FCD25001D581E /* UIKit.framework */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35B59DAA17ACFA4D00D4F128 /* RAApiCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAApiCaller.h; sourceTree = "<group>"; };
+		35B59DAB17ACFA4D00D4F128 /* RAApiCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAApiCaller.m; sourceTree = "<group>"; };
 		35F8ACD31786C0B7006C5B91 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		E7C7E429178C3FB3007065E8 /* RAPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAPerson.h; sourceTree = "<group>"; };
 		E7C7E42A178C3FB3007065E8 /* RAPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAPerson.m; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 				E7C7E42A178C3FB3007065E8 /* RAPerson.m */,
 				E7E0B669177FD06E001D581E /* ContactListViewController.h */,
 				E7E0B66A177FD06E001D581E /* AlarmListViewController.m */,
+				35B59DAA17ACFA4D00D4F128 /* RAApiCaller.h */,
+				35B59DAB17ACFA4D00D4F128 /* RAApiCaller.m */,
 				E7E0B67017802B98001D581E /* AlarmDetailViewController.h */,
 				E7E0B67117802B98001D581E /* AlarmDetailViewController.m */,
 				E7E0B67217802B98001D581E /* AlarmDetailViewController.xib */,
@@ -211,6 +216,7 @@
 				E7E0B66F177FD06E001D581E /* AlarmListViewController.m in Sources */,
 				E7E0B67317802B98001D581E /* AlarmDetailViewController.m in Sources */,
 				E7C7E42B178C3FB3007065E8 /* RAPerson.m in Sources */,
+				35B59DAC17ACFA4D00D4F128 /* RAApiCaller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

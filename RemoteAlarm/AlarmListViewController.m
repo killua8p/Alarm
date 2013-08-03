@@ -45,21 +45,20 @@
 {
     static NSString *CellIdentifier = @"AlarmCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
     if (!cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Get the Alarm item
     RAAlarm *alarm = [[[RAAlarmStore sharedStore] allAlarms] objectAtIndex:[indexPath row]];
     
-    // Set cell text
+    // Set cell content
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     [[cell textLabel] setText:[dateFormatter stringFromDate:[alarm alarmTime]]];
-    [[cell detailTextLabel] setText:[alarm receiverName]]; //TODO
+    [[cell detailTextLabel] setText:[alarm receiverName]];
     
     return cell;
 }

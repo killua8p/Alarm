@@ -11,6 +11,8 @@
 #import "ContactListViewController.h"
 #import "RAAlarmStore.h"
 
+NSString *theDeviceToken;
+
 @implementation RAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -37,6 +39,7 @@
     [[self window] setRootViewController:tbc];
     
     // Register for push notification
+    // TODO: determine if pushnotification is already registered
     UIRemoteNotificationType types = (UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound);
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:types];
         
@@ -51,6 +54,27 @@
     [av show];
 }
 
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    theDeviceToken = [deviceToken description];
+    // Trim "<" and ">"
+    theDeviceToken = [theDeviceToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    // Remove spaces
+    theDeviceToken = [theDeviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"FailToRegisterForRemoteNotifications: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Alarm" message:[NSString stringWithFormat:@"%@", userInfo] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [av show];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -59,8 +83,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     BOOL success = [[RAAlarmStore sharedStore] saveChanges];
     if (success)
     {

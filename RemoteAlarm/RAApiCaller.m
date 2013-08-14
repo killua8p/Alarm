@@ -30,4 +30,14 @@
     return dict;
 }
 
++ (NSString *)compileJSONString:(NSDictionary *)theDict
+{
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:theDict options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //TODO: error handling
+    
+    return str;
+}
+
 @end

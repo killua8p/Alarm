@@ -12,5 +12,6 @@
 
 + (NSData *)fetchData:(NSString *)theURL;
 + (NSDictionary *)parseJSONData:(NSData *)theData;
++ (NSString *)compileJSONString:(NSDictionary *)theDict;
 
 @end

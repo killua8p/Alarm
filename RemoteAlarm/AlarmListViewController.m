@@ -15,7 +15,7 @@
 
 - (id)init
 {
-    self = [super init];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self)
     {
         [[self navigationItem] setTitle:@"Alarm"];
@@ -27,6 +27,11 @@
     }
     
     return self;
+}
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    return [self init];
 }
 
 - (void)viewWillAppear:(BOOL)animated

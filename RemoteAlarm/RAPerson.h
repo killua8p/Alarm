@@ -9,11 +9,21 @@
 #import <Foundation/Foundation.h>
 
 @interface RAPerson : NSObject
+{
+    NSString *personID;
+}
+
+typedef enum {
+    kPersonStatusNonMember,
+    kPersonStatusNotConnected,
+    kPersonStatusConnected
+} PersonStatus;
 
 @property NSInteger recordID;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSMutableArray *tel;
 @property (nonatomic, strong) NSMutableArray *email;
+@property PersonStatus status;
 
 @end

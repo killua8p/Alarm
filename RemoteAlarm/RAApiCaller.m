@@ -21,6 +21,7 @@
     return response;
 }
 
+// JSON -> Dictionary
 + (NSDictionary *)parseJSONData:(NSData *)theData
 {
     NSError *error;
@@ -30,6 +31,7 @@
     return dict;
 }
 
+// Dictionary -> JSON
 + (NSString *)compileJSONString:(NSDictionary *)theDict
 {
     NSError *error;

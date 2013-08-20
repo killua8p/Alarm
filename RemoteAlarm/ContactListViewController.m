@@ -7,7 +7,7 @@
 //
 
 #import "ContactListViewController.h"
-#import <AddressBook/AddressBook.h>
+#import "RAUtility.h"
 #import "RAPerson.h"
 
 @interface ContactListViewController ()
@@ -16,83 +16,18 @@
 
 @implementation ContactListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)init
 {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        // Retrieve system contacts
-        
-        contactList = [[NSMutableArray alloc] init];
-        
-        CFErrorRef *error = nil;
-        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(nil, error);
-        CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBook);
-        CFIndex nPeople = ABAddressBookGetPersonCount(addressBook);
-        
-        for (NSInteger i = 0; i < nPeople; i++)
-        {
-            RAPerson *aPerson = [[RAPerson alloc] init];
-            
-            // Get name and record ID
-            ABRecordRef person = CFArrayGetValueAtIndex(allPeople, i);
-            CFTypeRef firstName = ABRecordCopyValue(person, kABPersonFirstNameProperty);
-            CFTypeRef lastName = ABRecordCopyValue(person, kABPersonLastNameProperty);
-            ABRecordID recordID = ABRecordGetRecordID(person);
-            
-            // Get telephone numbers
-            ABMultiValueRef tels= ABRecordCopyValue(person, kABPersonPhoneProperty);
-            NSMutableArray *telArray = nil;
-            if (tels != nil)
-            {
-                NSInteger count = ABMultiValueGetCount(tels);
-                if (count > 0)
-                {
-                    telArray = [[NSMutableArray alloc] init];
-                    
-                    for (NSInteger j = 0; j < count; j++)
-                    {
-                        CFTypeRef tel = ABMultiValueCopyValueAtIndex(tels, j);
-                        [telArray addObject:(__bridge_transfer NSString*)tel];
-                    }
-                }
-                CFRelease(tels);
-            }
-            
-            // Get email addresses
-            ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
-            NSMutableArray *emailArray = nil;
-            if (emails != nil)
-            {
-                NSInteger count = ABMultiValueGetCount(emails);
-                if (count > 0)
-                {
-                    emailArray = [[NSMutableArray alloc] init];
-                    
-                    for (NSInteger j = 0; j < count; j++)
-                    {
-                        CFTypeRef email = ABMultiValueCopyValueAtIndex(emails, j);
-                        [emailArray addObject:(__bridge_transfer NSString*)email];
-                    }
-                }
-                CFRelease(emails);
-            }
-
-            // Add contact to the array
-            [aPerson setFirstName:(__bridge_transfer NSString*)firstName];
-            [aPerson setLastName:(__bridge_transfer NSString*)lastName];
-            [aPerson setRecordID:(NSInteger)recordID];
-            [aPerson setTel:telArray];
-            [aPerson setEmail:emailArray];
-
-            [contactList addObject:aPerson];
-
-            // Release CF objects
-        }
-        
-        CFRelease(allPeople);
-        CFRelease(addressBook);
+        contactList = [RAUtility getSystemContactList];
     }
     return self;
+}
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    return [self init];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -138,6 +73,8 @@
     {
         [str appendFormat:@"%@\n", p];
     }
+    
+    // debug
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"debug"
                                                     message:str

@@ -8,6 +8,20 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>orologio_clock_alarm_icon-1979px.png</string>
+				<string>orologio_clock_alarm_icon-1979px_s.png</string>
+				<string>icon@2x.png</string>
+				<string>1368617123mzl.zntevxfs.png</string>
+				<string>icon.png</string>
+			</array>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>com.ak.apnsdemo</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -31,8 +45,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

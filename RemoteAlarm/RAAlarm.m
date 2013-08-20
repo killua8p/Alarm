@@ -7,6 +7,7 @@
 //
 
 #import "RAAlarm.h"
+#import "RAUtility.h"
 
 NSString * const kKeyOfNotificationID = @"ID";
 
@@ -19,7 +20,7 @@ NSString * const kKeyOfNotificationID = @"ID";
     self = [super init];
     if (self)
     {
-        alarmID = [self getUUID];
+        alarmID = [RAUtility getUUID];
         // Not using setter to avoid resetting local notification at the launch
         alarmTime = [NSDate date];
         [self setMessage:@"Time is up!"];
@@ -34,17 +35,6 @@ NSString * const kKeyOfNotificationID = @"ID";
     }
     
     return self;
-}
-
-- (NSString *)getUUID
-{
-    CFUUIDRef UUIDRef = CFUUIDCreate(kCFAllocatorDefault);
-    CFStringRef UUIDString = CFUUIDCreateString(kCFAllocatorDefault, UUIDRef);
-    NSString *strUUID = (__bridge_transfer NSString*)UUIDString;
-    
-    CFRelease(UUIDRef);
-    
-    return strUUID;
 }
 
 - (void)setIsEnabled:(BOOL)value

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3536F8C717BFC32E006896E2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3536F8C617BFC32E006896E2 /* icon@2x.png */; };
+		3536F8C917BFC332006896E2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3536F8C817BFC332006896E2 /* icon.png */; };
+		35A825EC17C3A96A006661C8 /* RAUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A825EB17C3A96A006661C8 /* RAUtility.m */; };
 		35B59DAC17ACFA4D00D4F128 /* RAApiCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B59DAB17ACFA4D00D4F128 /* RAApiCaller.m */; };
 		35F8ACD41786C0B7006C5B91 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F8ACD31786C0B7006C5B91 /* AddressBook.framework */; };
 		E7C7E42B178C3FB3007065E8 /* RAPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7E42A178C3FB3007065E8 /* RAPerson.m */; };
@@ -28,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3536F8C617BFC32E006896E2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
+		3536F8C817BFC332006896E2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		35A825EA17C3A96A006661C8 /* RAUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAUtility.h; sourceTree = "<group>"; };
+		35A825EB17C3A96A006661C8 /* RAUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAUtility.m; sourceTree = "<group>"; };
 		35B59DAA17ACFA4D00D4F128 /* RAApiCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAApiCaller.h; sourceTree = "<group>"; };
 		35B59DAB17ACFA4D00D4F128 /* RAApiCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAApiCaller.m; sourceTree = "<group>"; };
 		35F8ACD31786C0B7006C5B91 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -108,6 +115,8 @@
 				E7E0B664177FD06E001D581E /* RAAlarmStore.m */,
 				E7E0B665177FD06E001D581E /* RAAlarmStore.h */,
 				E7E0B666177FD06E001D581E /* RAAlarm.m */,
+				35A825EA17C3A96A006661C8 /* RAUtility.h */,
+				35A825EB17C3A96A006661C8 /* RAUtility.m */,
 				E7E0B667177FD06E001D581E /* RAAlarm.h */,
 				E7E0B668177FD06E001D581E /* ContactListViewController.m */,
 				E7C7E429178C3FB3007065E8 /* RAPerson.h */,
@@ -130,6 +139,8 @@
 		E7E0B64E177FCD25001D581E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3536F8C817BFC332006896E2 /* icon.png */,
+				3536F8C617BFC32E006896E2 /* icon@2x.png */,
 				E7E0B64F177FCD25001D581E /* RemoteAlarm-Info.plist */,
 				E7E0B650177FCD25001D581E /* InfoPlist.strings */,
 				E7E0B653177FCD25001D581E /* main.m */,
@@ -198,6 +209,8 @@
 				E7E0B65C177FCD25001D581E /* Default@2x.png in Resources */,
 				E7E0B65E177FCD25001D581E /* Default-568h@2x.png in Resources */,
 				E7E0B67417802B98001D581E /* AlarmDetailViewController.xib in Resources */,
+				3536F8C717BFC32E006896E2 /* icon@2x.png in Resources */,
+				3536F8C917BFC332006896E2 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +230,7 @@
 				E7E0B67317802B98001D581E /* AlarmDetailViewController.m in Sources */,
 				E7C7E42B178C3FB3007065E8 /* RAPerson.m in Sources */,
 				35B59DAC17ACFA4D00D4F128 /* RAApiCaller.m in Sources */,
+				35A825EC17C3A96A006661C8 /* RAUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

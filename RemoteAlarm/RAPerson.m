@@ -11,7 +11,7 @@
 
 @implementation RAPerson
 
-@synthesize recordID, firstName, lastName, tel, email, status;
+@synthesize recordID, firstName, lastName, nickName, tel, email, status;
 
 - (id)init
 {
@@ -22,6 +22,7 @@
         [self setRecordID:0];
         [self setFirstName:@""];
         [self setLastName:@""];
+        self.nickName = @"";
         [self setTel:[[NSMutableArray alloc] init]];
         [self setEmail:[[NSMutableArray alloc] init]];
         [self setStatus:kPersonStatusNonMember];

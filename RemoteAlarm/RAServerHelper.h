@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RAApiCaller : NSObject
+@interface RAServerHelper : NSObject
 
 + (NSData *)fetchData:(NSString *)theURL;
 + (NSDictionary *)parseJSONData:(NSData *)theData;

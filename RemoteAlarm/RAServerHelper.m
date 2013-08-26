@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Alan Huang. All rights reserved.
 //
 
-#import "RAApiCaller.h"
+#import "RAServerHelper.h"
 
-@implementation RAApiCaller
+@implementation RAServerHelper
 
 + (NSData *)fetchData:(NSString *)theURL
 {
@@ -40,6 +40,21 @@
     //TODO: error handling
     
     return str;
+}
+
++ (NSDictionary *)registerDevice:(NSString *)deviceID phoneNumber:(NSString *)phone notificationToken:(NSString *)token
+{
+    return nil;
+}
+
++ (NSDictionary *)addFriend:(NSString *)personID
+{
+    return nil;
+}
+
++ (NSDictionary *)acceptFriend:(NSString *)personID
+{
+    return nil;
 }
 
 @end

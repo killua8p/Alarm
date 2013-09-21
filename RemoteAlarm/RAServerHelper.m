@@ -7,9 +7,12 @@
 //
 
 #import "RAServerHelper.h"
+#import "RAAlarm.h"
+#import "RAPerson.h"
 
 @implementation RAServerHelper
 
+// Send request to server
 + (NSData *)fetchData:(NSString *)theURL
 {
     NSError *error;
@@ -42,17 +45,32 @@
     return str;
 }
 
-+ (NSDictionary *)registerDevice:(NSString *)deviceID phoneNumber:(NSString *)phone notificationToken:(NSString *)token
+// Send a registration request
++ (NSDictionary *)registerNewAccount: (NSDictionary *)regDetails
 {
     return nil;
 }
 
+// Send a adding friend request
 + (NSDictionary *)addFriend:(NSString *)personID
 {
     return nil;
 }
 
+// Send a accepting friend request
 + (NSDictionary *)acceptFriend:(NSString *)personID
+{
+    return nil;
+}
+
+// Send a creating an alarm for a friend request
++ (NSDictionary *)createAlarm:(RAAlarm *)alarm forFriend:(RAPerson *)person
+{
+    return nil;
+}
+
+// Send a removing an alarm request
++ (NSDictionary *)removeAlarm:(RAAlarm *)alarm
 {
     return nil;
 }

@@ -12,6 +12,9 @@
 		35A825EC17C3A96A006661C8 /* RAUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A825EB17C3A96A006661C8 /* RAUtility.m */; };
 		35B59DAC17ACFA4D00D4F128 /* RAServerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B59DAB17ACFA4D00D4F128 /* RAServerHelper.m */; };
 		35F8ACD41786C0B7006C5B91 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F8ACD31786C0B7006C5B91 /* AddressBook.framework */; };
+		E773C9D117DEDDDF00600937 /* RAUserRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E773C9CF17DEDDDF00600937 /* RAUserRegistrationViewController.m */; };
+		E773C9D217DEDDDF00600937 /* RAUserRegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E773C9D017DEDDDF00600937 /* RAUserRegistrationViewController.xib */; };
+		E773C9D617DEE86600600937 /* registernow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E773C9D517DEE86600600937 /* registernow.jpg */; };
 		E7C7E42B178C3FB3007065E8 /* RAPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7E42A178C3FB3007065E8 /* RAPerson.m */; };
 		E7E0B648177FCD25001D581E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E0B647177FCD25001D581E /* UIKit.framework */; };
 		E7E0B64A177FCD25001D581E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E0B649177FCD25001D581E /* Foundation.framework */; };
@@ -38,6 +41,10 @@
 		35B59DAA17ACFA4D00D4F128 /* RAServerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAServerHelper.h; sourceTree = "<group>"; };
 		35B59DAB17ACFA4D00D4F128 /* RAServerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAServerHelper.m; sourceTree = "<group>"; };
 		35F8ACD31786C0B7006C5B91 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		E773C9CE17DEDDDF00600937 /* RAUserRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAUserRegistrationViewController.h; sourceTree = "<group>"; };
+		E773C9CF17DEDDDF00600937 /* RAUserRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAUserRegistrationViewController.m; sourceTree = "<group>"; };
+		E773C9D017DEDDDF00600937 /* RAUserRegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RAUserRegistrationViewController.xib; sourceTree = "<group>"; };
+		E773C9D517DEE86600600937 /* registernow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = registernow.jpg; sourceTree = "<group>"; };
 		E7C7E429178C3FB3007065E8 /* RAPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAPerson.h; sourceTree = "<group>"; };
 		E7C7E42A178C3FB3007065E8 /* RAPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAPerson.m; sourceTree = "<group>"; };
 		E7E0B644177FCD25001D581E /* RemoteAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +131,9 @@
 				E7E0B669177FD06E001D581E /* ContactListViewController.h */,
 				E7E0B66A177FD06E001D581E /* AlarmListViewController.m */,
 				35B59DAA17ACFA4D00D4F128 /* RAServerHelper.h */,
+				E773C9CE17DEDDDF00600937 /* RAUserRegistrationViewController.h */,
+				E773C9CF17DEDDDF00600937 /* RAUserRegistrationViewController.m */,
+				E773C9D017DEDDDF00600937 /* RAUserRegistrationViewController.xib */,
 				35B59DAB17ACFA4D00D4F128 /* RAServerHelper.m */,
 				E7E0B67017802B98001D581E /* AlarmDetailViewController.h */,
 				E7E0B67117802B98001D581E /* AlarmDetailViewController.m */,
@@ -139,6 +149,7 @@
 		E7E0B64E177FCD25001D581E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E773C9D517DEE86600600937 /* registernow.jpg */,
 				3536F8C817BFC332006896E2 /* icon.png */,
 				3536F8C617BFC32E006896E2 /* icon@2x.png */,
 				E7E0B64F177FCD25001D581E /* RemoteAlarm-Info.plist */,
@@ -211,6 +222,8 @@
 				E7E0B67417802B98001D581E /* AlarmDetailViewController.xib in Resources */,
 				3536F8C717BFC32E006896E2 /* icon@2x.png in Resources */,
 				3536F8C917BFC332006896E2 /* icon.png in Resources */,
+				E773C9D217DEDDDF00600937 /* RAUserRegistrationViewController.xib in Resources */,
+				E773C9D617DEE86600600937 /* registernow.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +244,7 @@
 				E7C7E42B178C3FB3007065E8 /* RAPerson.m in Sources */,
 				35B59DAC17ACFA4D00D4F128 /* RAServerHelper.m in Sources */,
 				35A825EC17C3A96A006661C8 /* RAUtility.m in Sources */,
+				E773C9D117DEDDDF00600937 /* RAUserRegistrationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +326,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RemoteAlarm/RemoteAlarm-Prefix.pch";
 				INFOPLIST_FILE = "RemoteAlarm/RemoteAlarm-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7BE2C8A7-91DD-4B59-825C-0A1B4DAD0C3A";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7BE2C8A7-91DD-4B59-825C-0A1B4DAD0C3A";
@@ -327,6 +342,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RemoteAlarm/RemoteAlarm-Prefix.pch";
 				INFOPLIST_FILE = "RemoteAlarm/RemoteAlarm-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7BE2C8A7-91DD-4B59-825C-0A1B4DAD0C3A";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7BE2C8A7-91DD-4B59-825C-0A1B4DAD0C3A";

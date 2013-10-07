@@ -10,6 +10,7 @@
 #import "AlarmListViewController.h"
 #import "ContactListViewController.h"
 #import "RAAlarmStore.h"
+#import <Parse/Parse.h>
 
 NSString *theDeviceToken;
 
@@ -17,6 +18,12 @@ NSString *theDeviceToken;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //To use Parse framework
+    [Parse setApplicationId:@"yxhTL5AXnpN4tCsWTsSkWvj4qBlHXMY4wyb4JzkY"
+                  clientKey:@"jWEBjLG7df1pkdFu06Rw7avZCZ6BWargGdSHVVq4"];
+    //To track statistics around application opens
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
